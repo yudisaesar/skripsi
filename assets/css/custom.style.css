@@ -1,0 +1,92 @@
+/********************
+ custom style 
+********************/
+thead tr th{
+    text-align: center !important;
+    vertical-align: middle !important;
+    border-bottom: 1px solid #DDD !important;
+}
+
+thead{    
+    background-color: #E6E6E6 !important;
+}
+
+thead tr th{
+    vertical-align: middle !important;
+}
+
+tbody tr{
+    text-align: left !important;
+}
+td.group {
+	font-weight: bold;	
+	border-bottom: 2px solid #A19B9E;
+	border-top: 2px solid #A19B9E;
+}
+
+.data tbody tr{
+    text-align: left !important;
+}
+
+.data thead tr th{
+    text-align: left !important;
+}
+
+tfoot{
+    background-color: #E6E6E6 !important;
+}
+
+.head{
+    background-color: #Ffffff !important;
+    
+}
+
+.head tr th{
+    border-top: 1px solid #DDD !important;
+    text-align: left !important;
+}
+
+/*
+.btn-group select{
+    border-right: #cccccc thin solid;
+    color: #666666;
+    border-top: #cccccc thin solid;
+    font-size: 11pt;
+    border-left: #cccccc thin solid;
+    border-bottom: #cccccc thin solid;
+    font-family: verdana, arial;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    size: 1;
+    height: 35px;
+}
+
+
+.btn-group select option{
+    height: 35px;
+    line-height: 30px;
+}*/
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 0px 0 0 0 !important;
+}
+
+.sidebar-toggler{
+    margin-bottom: 8px;
+}
+
+#stack1 .modal-body .form-group .col-md-9{
+    margin-bottom: 10px !important;
+}
+
+.m-icon-white {
+    background-image: url(../img/syncfusion-icons-white.png) !important;
+}
+
+.portlet-body {
+    padding-left: 0px;
+}
+
+.form-control {
+    padding: 6px 3px !important;
+}
