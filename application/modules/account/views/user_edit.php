@@ -61,33 +61,7 @@
                                                 <?=form_error('full_name', '<span class="help-block error">', '</span>')?>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Department</label>
-                                            <div class="col-md-4">
-                                                <select name="department_id" class="form-control" id="department_id">
-                                                    <option value="">Select Department</option>
-                                                    <?php if($department) { 
-                                                        foreach($department as $r) { ?>
-                                                    <option value="<?=$r['id']?>" <?=  set_select("department_id", $r['id'], ($row->department_id==$r['id'])?TRUE:FALSE)?>><?=$r['name']?></option>
-                                                    <?php  } } ?>
-                                                </select>
-                                                <?=form_error('department_id', '<span class="help-block error">', '</span>')?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Designation</label>
-                                            <div class="col-md-4">
-                                                <select name="designation_id" class="form-control" id="designation_id">
-                                                    <option value="">Select Designation</option>
-                                                    <?php if($designation){?>
-                                                        <?php foreach ($designation as $r){?>
-                                                        <option value="<?=$r['id']?>" <?=  set_select("designation_id", $r['id'], ($row->designation_id==$r['id'])?TRUE:FALSE)?>><?=$r['name']?></option>
-                                                        <?php }?>
-                                                    <?php }?>
-                                                </select>
-                                                <?=form_error('department_id', '<span class="help-block error">', '</span>')?>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Password</label>
                                             <div class="col-md-4">
@@ -116,17 +90,7 @@
                                                 <?=form_error('role', '<span class="help-block error">', '</span>')?>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Status</label>
-                                            <div class="col-md-4">
-                                                <div class="checkbox-list">
-                                                    <label class="checkbox-inline">
-                                                        <input name="is_lock" <?=set_checkbox("is_lock", "on", ($row->is_lock) ? TRUE : FALSE)?> type="checkbox" value="on" /> Lock of user access
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        
                                     <div class="form-actions">
                                         <div class="row">
                                             <div class="col-md-offset-3 col-md-9">

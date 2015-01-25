@@ -60,10 +60,7 @@
                                             <th>No.</th>
                                             <th>Full Name</th>
                                             <th>Email</th>
-                                            <th>Department</th>
-                                            <th>Designation</th>
                                             <th>Role</th>
-                                            <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -72,16 +69,13 @@
                                         if($rows) {
                                              $num = 1;
                                              foreach($rows as $row) {
-                                                 $status = ($row['is_lock']==0) ? '<span class="label label-sm label-success">Active</span>' : '<span class="label label-sm label-info">Locked</span>';
+                                                 //$status = ($row['is_lock']==0) ? '<span class="label label-sm label-success">Active</span>' : '<span class="label label-sm label-info">Locked</span>';
                                         ?>
                                         <tr>
                                             <td><?=$num?></td>								
                                             <td><?=$row['full_name']?></td>
                                             <td><?=$row['email']?></td>
-                                            <td><?=$row['dept']?></td>
-                                            <td><?=$row['designation']?> </td>
                                             <td><?=$this->role->get_role($row['role'])?></td>
-                                            <td><?=$status?></td>
                                             <td class="center">
                                                 <a href="<?=site_url('account/edit/'.$row['id'])?>">Edit</a>
                                             </td>

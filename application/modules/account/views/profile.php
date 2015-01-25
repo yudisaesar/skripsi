@@ -59,21 +59,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Department</label>
+                                            <label class="col-md-3 control-label">Full Name</label>
                                             <div class="col-md-4">
-                                                <input type="text" class="form-control" disabled="disabled" value="<?=$row->department_name?>"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Designation</label>
-                                            <div class="col-md-4">
-                                                <input type="text" class="form-control" disabled="disabled" value="<?=$row->designation_name?>"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Role</label>
-                                            <div class="col-md-4">
-                                                <input type="text" class="form-control" disabled="disabled" value="<?=$this->role->get_role($row->role)?>"/>
+                                                <input type="text" class="form-control" disabled="disabled" value="<?=$row->role?>"/>
                                             </div>
                                         </div>
                                     </div>

@@ -61,28 +61,7 @@
                                                 <?=form_error('full_name', '<span class="help-block error">', '</span>')?>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Department</label>
-                                            <div class="col-md-4">
-                                                <select name="department_id" class="form-control" id="department_id">
-                                                    <option value="">Select Department</option>
-                                                    <?php if($department) { 
-                                                        foreach($department as $r) { ?>
-                                                    <option value="<?=$r['id']?>" <?=  set_select("department_id", $r['id'])?>><?=$r['name']?></option>
-                                                    <?php  } } ?>
-                                                </select>
-                                                <?=form_error('department_id', '<span class="help-block error">', '</span>')?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Designation</label>
-                                            <div class="col-md-4">
-                                                <select name="designation_id" class="form-control" id="designation_id">
-                                                    <option value="">Select Designation</option>
-                                                </select>
-                                                <?=form_error('department_id', '<span class="help-block error">', '</span>')?>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Password</label>
                                             <div class="col-md-4">

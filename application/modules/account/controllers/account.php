@@ -10,13 +10,11 @@
         
         //Load model
         $this->load->model('user_mod');
-        $this->load->model('company/department_mod');
-        $this->load->model('company/designation_mod');
     }
     
     public function index()
     {
-        $this->_is_administrator();
+        //$this->_is_administrator();
         
         $data['rows'] = $this->user_mod->get_users();
         $data['breadcrumb'] = $this->breadcrumb();
@@ -25,15 +23,13 @@
      
     public function create()
     {
-        $this->_is_administrator();
+        //$this->_is_administrator();
         
         $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('full_name', 'full name', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
         $this->form_validation->set_rules('password_repeat', 'Retype Password', 'required|matches[password]');
-        $this->form_validation->set_rules('department_id', 'Department', 'trim|required');
-        $this->form_validation->set_rules('designation_id', 'Designation', 'trim|required');
         $this->form_validation->set_rules('role', 'Role', 'trim|required');
 
         if ($this->form_validation->run() == TRUE)
@@ -42,7 +38,6 @@
             $password = $this->input->post("password");
             $full_name = $this->input->post("full_name");
             $role = $this->input->post("role");
-            $designation_id = $this->input->post('designation_id');
 
             $is_user  = $this->user_mod->get_byemail($email);
 
@@ -53,7 +48,6 @@
                    'email' => $email,
                    'password' => $this->_encode_password($password),
                    'full_name' => $full_name,
-                   'designation_id' => $designation_id,
                    'role' => $role,
                    'create_time' => date_now(true)
                );
@@ -71,7 +65,6 @@
             }
         }
 
-        $data['department'] = $this->department_mod->get_department_active();
         $data['role'] = $this->role->get_role();
         $data['breadcrumb'] = $this->breadcrumb('create');
         $this->load->view('user_add',$data);
@@ -79,7 +72,7 @@
 
     public function edit($id=0)
     {
-        $this->_is_administrator();
+        //$this->_is_administrator();
         
         $row = $this->user_mod->get_byuid($id);
         if(!$row) {
@@ -91,8 +84,6 @@
         $this->form_validation->set_rules('full_name', 'full name', 'required');
         $this->form_validation->set_rules('password', 'Password', 'min_length[4]|matches[password_repeat]');
         $this->form_validation->set_rules('password_repeat');
-        $this->form_validation->set_rules('department_id', 'Department', 'trim|required');
-        $this->form_validation->set_rules('designation_id', 'Designation', 'trim|required');
         $this->form_validation->set_rules('role', 'Role', 'trim|required');
 
         if ($this->form_validation->run() == TRUE)
@@ -101,9 +92,6 @@
             $password = $this->input->post("password");
             $full_name = $this->input->post("full_name");
             $role = $this->input->post("role");
-            $designation_id = $this->input->post('designation_id');
-            $is_lock = $this->input->post("is_lock");
-            $is_lock = ($is_lock == 'on') ? 1 : 0;
 
             $is_user = FALSE;
             if($email != $row->email) {
@@ -116,9 +104,7 @@
                 $data_edit = array (
                     'email' => $email,
                     'full_name' => $full_name,
-                    'designation_id' => $designation_id,
                     'role' => $role,
-                    'is_lock' => $is_lock
                 );
 
                 if($password != '') {
@@ -135,35 +121,12 @@
         }
 
         $data['row'] = $row;
-        $data['department'] = $this->department_mod->get_department_active();
-        $data['designation'] = $this->designation_mod->get_designation_active(FALSE,array('designation.dept_id' => $row->department_id));
         $data['role'] = $this->role->get_role();
         $data['breadcrumb'] = $this->breadcrumb('edit');
         $this->load->view('user_edit',$data);
     }
      
-    public function ajax_designation()
-    {
-        $html = "";
-        $department_id = $this->input->post("department_id");
-        if($department_id > 0)
-        {
-            $where = array(
-                'designation.dept_id' => $department_id
-            );
-            $rows = $this->designation_mod->get_designation_active(FALSE,$where);
-            $html = '<option value="">Select Designation</option>';
-            if($rows)
-            {
-                foreach ($rows as $r){
-                    $html .= '<option value="'. $r['id'] .'">'. $r['name'] .'</option>';
-                }
-            }
-        }
-        
-        echo $html;
-        exit();
-    }
+    
 
     private function breadcrumb($action='index')
     {
@@ -233,8 +196,6 @@
     {
         $row = $this->user;
         $data['row'] = $row;
-        $data['department'] = $this->department_mod->get_department_active();
-        $data['designation'] = $this->designation_mod->get_designation_active(FALSE,array('designation.dept_id' => $row->department_id));
         $data['breadcrumb'] = $this->breadcrumb('profile');
         $this->load->view('profile',$data);
     } 
