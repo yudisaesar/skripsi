@@ -352,35 +352,35 @@
 					<h3 class="uppercase">Administrator</h3>
 				</li>
                                 <li>                                    
-					<a href="user.php">
+					<a href="<?=site_url('account')?>">
 					<i class="icon-user"></i>
 					<span class="title">User </span>
 					</a>
 				</li>
                                 <li>
-					<a href="plane.php">
-					<i class="icon-plane"></i>
-					<span class="title">Aircraft </span>
+					<a href="<?=site_url('department')?>">
+					<i class="icon-direction"></i>
+					<span class="title">Department </span>
 					</a>
 				</li>
                                 <li>
 					<a href="javascript:;">
 					<i class="icon-briefcase"></i>
-					<span class="title"> Company </span>
+					<span class="title"> Equipment </span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>                                    
-                                                        <a href="company.php">
-                                                        <i class="icon-plane"></i>
-                                                        <span class="title">Company </span>
+                                                        <a href="<?=site_url('equipment/location')?>">
+                                                        <i class="icon-bar-chart"></i>
+
+                                                        <span class="title">Locations </span>
                                                         </a>
                                                 </li>
                                                 <li>                                    
-                                                        <a href="departement.php">
-                                                        <i class="icon-bar-chart"></i>
-
-                                                        <span class="title">Departement </span>
+                                                        <a href="<?=site_url('equipment/alat')?>">
+                                                        <i class="icon-plane"></i>
+                                                        <span class="title">Equipments </span>
                                                         </a>
                                                 </li>
                                                 <li>                                    

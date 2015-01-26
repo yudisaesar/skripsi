@@ -1,7 +1,7 @@
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
 	<div class="page-footer-inner">
-		2014 &copy; Premiair E-budgeting by Berlima.
+		2015 &copy; Sandoz QC Management System by Yudi Saesar.
 	</div>
 	<div class="scroll-to-top">
 		<i class="icon-arrow-up"></i>
