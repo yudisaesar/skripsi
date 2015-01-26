@@ -61,7 +61,20 @@
                                                 <?=form_error('full_name', '<span class="help-block error">', '</span>')?>
                                             </div>
                                         </div>
-                                        
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Username</label>
+                                            <div class="col-md-4">
+                                                <input type="text" name="username" class="form-control " placeholder="Enter user name" value="<?= set_value('username')?>">
+                                                <?=form_error('username', '<span class="help-block error">', '</span>')?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Initial</label>
+                                            <div class="col-md-4">
+                                                <input type="text" name="initial" class="form-control " placeholder="Enter initial" value="<?= set_value('initial')?>">
+                                                <?=form_error('initial', '<span class="help-block error">', '</span>')?>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Password</label>
                                             <div class="col-md-4">

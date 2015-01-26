@@ -21,7 +21,7 @@
         <div class="page-content-wrapper">
             <div class="page-content">
                 <!-- BEGIN PAGE HEADER-->
-                <h3 class="page-title">Profile</h3>
+                <h3 class="page-title">User Accounts</h3>
                 <div class="page-bar">
                     <?php $this->load->view('inc/breadcrumb');?>
                 </div>
@@ -34,7 +34,7 @@
                         <div class="portlet box green">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fa fa-gift"></i>User Accounts [profile]
+                                    <i class="fa fa-gift"></i>User Accounts [add]
                                 </div>
                             </div>
                             <div class="portlet-body form">
@@ -42,33 +42,37 @@
                                 <form action="" class="form-horizontal" method="post">
                                     <div class="form-body">
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Email Address</label>
+                                            <label class="col-md-3 control-label">Kode Alat</label>
                                             <div class="col-md-4">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon ">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </span>
-                                                    <input type="text" class="form-control" disabled="disabled" value="<?=$row->email?>"/>
-                                                </div>
+                                                <input type="text" name="kode" class="form-control " placeholder="Enter kode" value="<?= set_value('kode')?>">
+                                                <?=form_error('kode', '<span class="help-block error">', '</span>')?>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Full Name</label>
+                                            <label class="col-md-3 control-label">Nama Alat</label>
                                             <div class="col-md-4">
-                                                <input type="text" class="form-control" disabled="disabled" value="<?=$row->full_name?>"/>
+                                                <input type="text" name="name" class="form-control " placeholder="Enter name" value="<?= set_value('name')?>">
+                                                <?=form_error('name', '<span class="help-block error">', '</span>')?>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Role</label>
+                                            <label class="col-md-3 control-label">Business Type</label>
                                             <div class="col-md-4">
-                                                <input type="text" class="form-control" disabled="disabled" value="<?=$this->role->get_role($row->role)?>"/>
+                                                <select name="location_id" class="form-control">
+                                                <option value="">Select Location</option>
+                                                    <?php if($location) { 
+                                                        foreach($location as $r) { ?>
+                                                        <option value="<?=$r['id']?>"<?=set_select('location_id', $r['id'])?>><?=$r['name']?></option>
+                                                    <?php  } } ?>
+                                                </select>
+                                                <?=form_error('business_type_id', '<span class="help-block error">', '</span>')?>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </div>          
                                     <div class="form-actions">
                                         <div class="row">
-                                            <div class="col-md-offset-3 col-md-4">
-                                                <a href="<?=site_url('account/change_password')?>" class="btn blue">Change Password</a>
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <button type="submit" class="btn blue">Save</button>
+                                                <a href="<?=site_url('equipment/alat')?>" class="btn default">Cancel</a>
                                             </div>
                                         </div>
                                     </div>
@@ -88,6 +92,18 @@
     <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <?php $this->load->view('inc/footer');?>
+    <script>
+        jQuery(document).ready(function() {
+            $('#department_id').change(function(){
+                var id = this.value;
+                if(id !='' ){
+                    $.post( base_url + 'account/ajax_designation', { department_id: id } ).done(function( data ) {
+                       $( "#designation_id" ).empty().append( data );
+                    });
+                }
+            });
+        });
+    </script>
     <!-- END FOOTER -->
 </body>
 <!-- END BODY -->

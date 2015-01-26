@@ -28,6 +28,8 @@
         $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('full_name', 'full name', 'required');
+        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('initial', 'initial', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
         $this->form_validation->set_rules('password_repeat', 'Retype Password', 'required|matches[password]');
         $this->form_validation->set_rules('role', 'Role', 'trim|required');
@@ -37,6 +39,8 @@
             $email = $this->input->post("email");
             $password = $this->input->post("password");
             $full_name = $this->input->post("full_name");
+            $username = $this->input->post("username");
+            $initial = $this->input->post("initial");
             $role = $this->input->post("role");
 
             $is_user  = $this->user_mod->get_byemail($email);
@@ -48,6 +52,8 @@
                    'email' => $email,
                    'password' => $this->_encode_password($password),
                    'full_name' => $full_name,
+                   'username' => $username,
+                   'initial' => $initial,
                    'role' => $role,
                    'create_time' => date_now(true)
                );
@@ -82,8 +88,10 @@
         $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('full_name', 'full name', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'min_length[4]|matches[password_repeat]');
-        $this->form_validation->set_rules('password_repeat');
+        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('initial', 'initial', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
+        $this->form_validation->set_rules('password_repeat', 'Retype Password', 'required|matches[password]');
         $this->form_validation->set_rules('role', 'Role', 'trim|required');
 
         if ($this->form_validation->run() == TRUE)
@@ -91,6 +99,8 @@
             $email = $this->input->post("email");
             $password = $this->input->post("password");
             $full_name = $this->input->post("full_name");
+            $username = $this->input->post("username");
+            $initial = $this->input->post("initial");
             $role = $this->input->post("role");
 
             $is_user = FALSE;
@@ -103,8 +113,12 @@
             {
                 $data_edit = array (
                     'email' => $email,
-                    'full_name' => $full_name,
-                    'role' => $role,
+                   'password' => $this->_encode_password($password),
+                   'full_name' => $full_name,
+                   'username' => $username,
+                   'initial' => $initial,
+                   'role' => $role,
+                   'create_time' => date_now(true)
                 );
 
                 if($password != '') {

@@ -24,7 +24,7 @@
         <div class="page-content-wrapper">
             <div class="page-content">
                 <!-- BEGIN PAGE HEADER-->
-                <h3 class="page-title">User Accounts</h3>
+                <h3 class="page-title">Department</h3>
                 <div class="page-bar">
                     <?php $this->load->view('inc/breadcrumb');?>
                 </div>
@@ -36,7 +36,7 @@
                         <div class="portlet ">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fa fa-edit"></i>User Accounts [list]
+                                    <i class="fa fa-edit"></i>Department [list]
                                 </div>
                                 <?php $this->load->view('inc/tools');?>
                             </div>
@@ -45,7 +45,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="btn-group">
-                                                <a href="<?=site_url('account/create')?>">
+                                                <a href="<?=site_url('department/create')?>">
                                                     <button id="sample_editable_1_new" class="btn green">
                                                     Add New <i class="fa fa-plus"></i>
                                                     </button>
@@ -58,12 +58,10 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Full Name</th>
-                                            <th>Username</th>
-                                            <th>Initial</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Actions</th>
+                                            <th>Nama</th>
+                                            <th>Abbreviation</th>
+                                            <th>Description</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -75,13 +73,11 @@
                                         ?>
                                         <tr>
                                             <td><?=$num?></td>								
-                                            <td><?=$row['full_name']?></td>
-                                            <td><?=$row['email']?></td>
-                                            <td><?=$row['username']?></td>
-                                            <td><?=$row['initial']?></td>
-                                            <td><?=$this->role->get_role($row['role'])?></td>
+                                            <td><?=$row['name']?></td>
+                                            <td><?=$row['abbr']?></td>
+                                            <td><?=$row['desc']?></td>
                                             <td class="center">
-                                                <a href="<?=site_url('account/edit/'.$row['id'])?>">Edit</a>
+                                                <a href="<?=site_url('department/edit/'.$row['id'])?>">Edit</a>
                                             </td>
                                         </tr>
                                         <?php
