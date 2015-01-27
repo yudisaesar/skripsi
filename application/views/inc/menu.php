@@ -406,14 +406,14 @@
                                 <li>
 					<a href="javascript:;">
 					<i class="icon-settings"></i>
-					<span class="title">Parameter </span>
+					<span class="title">Product </span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
                                                 <li>                                    
-                                                        <a href="sharing_cost.php">
+                                                        <a href="<?=site_url('product')?>">
                                                         <i class="icon-user"></i>
-                                                        <span class="title">Sharing cost </span>
+                                                        <span class="title">Product </span>
                                                         </a>
                                                 </li>
                                                 <li>                                    
